@@ -70,7 +70,7 @@ class Api {
 }
 
 let url;
-if (NODE_ENV === 'production') {
+if (NODE_ENV = 'production') {
     url = 'https://praktikum.tk/cohort1';
 } else {
     url = 'http://praktikum.tk/cohort1';
