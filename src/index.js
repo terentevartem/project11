@@ -235,7 +235,7 @@ function updateProfile() {
 }
 
 // Валидация (кнопки/пустая форма/ограничение по символам)
-function check() {
+window.check = function check() {
     const errorField1 = document.querySelector('.error__1');
     const errorField2 = document.querySelector('.error__2');
     const errorField3 = document.querySelector('.error__3');
