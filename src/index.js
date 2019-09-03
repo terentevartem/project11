@@ -1,3 +1,4 @@
+import "./pages/index.css";
 "use strict";
 
 class Api {
@@ -68,9 +69,18 @@ class Api {
     }
 }
 
+let url;
+if (NODE_ENV === 'production') {
+    url = 'https://praktikum.tk/cohort1';
+} else {
+    url = 'http://praktikum.tk/cohort1';
+}
+
+console.log(NODE_ENV);
+
 // Создаем класс и передаем параметры
 const api = new Api({
-    baseUrl: 'http://95.216.175.5/cohort1',
+    baseUrl: url,
     headers: {
         // Можно лучше: Ключи авторизации лучше выносить хотябы в константы в начало документа
         authorization: 'ae01fe3c-3e9a-4d54-b1bb-9b4ebe7933cd',

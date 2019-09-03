@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="style.5ae4bfa06efb91cd0965.css?c22863e4095304d06241">
+</head>
+<body>
+  <div class="root">
+    <header class="header root__section">
+      <img src=./images/logo.svg alt="mesto logo" class="logo">
+    </header>
+    <div class="profile root__section">
+      <div class="user-info">
+        <div class="user-info__photo"></div>
+        <div class="user-info__data">
+          <h1 class="user-info__name"></h1>
+          <p class="user-info__job"></p>
+          <button class="button_edit user-edit__button">Edit</button>
+        </div>
+        <button class="button user-info__button">+</button>
+      </div>
+    </div>
+    <div class="places-list root__section">
+    </div>
+    <div class="popup">
+      <div class="popup__content">
+        <img src=./images/close.svg alt="" class="popup__close">
+        <h3 class="popup__title">Новое место</h3>
+        <form name="add_form" class="popup__form" name="new">
+            <input type="text" name="name_form" class="popup__input popup__input_type_name" placeholder="Название" onkeyup="check();">
+            <div class="error error__1"></div>
+            <input type="text" name="link_form" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку" onkeyup="check();">
+            <div class="error error__2"></div>
+            <button disabled class="button popup__button">+</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup__edit">
+    <div class="popup__content">
+      <img src=./images/close.svg alt="" class="popup__close edit__close">
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="popup__form" name="new">
+        <input type="text" name="name" class="popup__input popup__input_type_name edit__name" placeholder="Имя" onkeyup="check();">
+        <div class="error error__3"></div>
+        <input type="text" name="link" class="popup__input popup__input_type_link-url edit__job" placeholder="О себе" onkeyup="check();">
+        <div class="error error__4"></div>
+        <button disabled class="button popup__button_edit">Сохранить</button>
+      </form>
+    </div>
+    </div>
+    <div class="popup popup__image">
+      <div class="popup__image_content">
+        <img src=./images/close.svg alt="" class="popup__close image__close">
+      </div>
+    </div>
+  </div>
+  <script src="main.816482daefc901e1281f.js?c22863e4095304d06241"></script>
+</body>
+</html>
