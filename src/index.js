@@ -1,3 +1,4 @@
+import "./pages/index.css";
 "use strict";
 
 class Api {
@@ -68,9 +69,20 @@ class Api {
     }
 }
 
+const NODE_ENV = process.env.NODE_ENV;
+let url;
+// вынести отдельно
+if (NODE_ENV === 'production') {
+    url = 'https://praktikum.tk/cohort1';
+} else {
+    url = 'http://praktikum.tk/cohort1';
+}
+
+console.log(process.env.NODE_ENV);
+
 // Создаем класс и передаем параметры
 const api = new Api({
-    baseUrl: 'http://95.216.175.5/cohort1',
+    baseUrl: url,
     headers: {
         // Можно лучше: Ключи авторизации лучше выносить хотябы в константы в начало документа
         authorization: 'ae01fe3c-3e9a-4d54-b1bb-9b4ebe7933cd',
@@ -93,6 +105,7 @@ class Card {
     }
 
     create(name, link) {
+        // очень много кода в методе, лучше разнести по разным методам внутри класса
         const cardContainer = document.createElement('div');
         cardContainer.classList.add('place-card');
 
@@ -101,6 +114,7 @@ class Card {
         cardImage.style.backgroundImage = `url(${link})`;
 
         cardImage.addEventListener('click', function () {
+            // вынести в отдельный метод
             const imageContentPopup = document.querySelector('.popup__image_content');
             imagePopup.classList.add('popup_is-opened');
             imgPopup.classList.add('img__content');
@@ -224,7 +238,7 @@ function updateProfile() {
 }
 
 // Валидация (кнопки/пустая форма/ограничение по символам)
-function check() {
+window.check = function check() {
     const errorField1 = document.querySelector('.error__1');
     const errorField2 = document.querySelector('.error__2');
     const errorField3 = document.querySelector('.error__3');
@@ -284,6 +298,8 @@ function check() {
 
 
 // Обработчики
+// лучше вынести в отдельный класс и вызывать в самом конце, не всегда надо вызывать обработчики
+// а только по необходимости на той странице где они необходимы.
 addButton.addEventListener('click', function () {
     addCardPopup.open();
 });
@@ -319,14 +335,25 @@ closeImg.addEventListener('click', function () {
     addImagePopup.close();
 });
 
-/*
-Отлично!
+ 
 
-    Ваши запросы отправляются правильными методами
-    Вы верно обрабатываете коды ответа
-    У вас присутствует обработка ошибок
-    Весь функционал работает корректно
 
-    Принято
-
+/**
+ * Хорошо что разобрались с гитом, webpack и babel, уже похвально
+ * 
+ * Необходимо оформить readmi.mb
+* README.md должно быть рассписано как запустить проект, пошагово, что из себя представляет проект.
+* Представьте что вы отдедите свой проект своему другу через 5 лет и вы двлжны рассказать что и за чем он, какую несёт цель и так далее
+ * 
+ * Вы сделали много веток, но они между собой рознятся. Надо вливать из одной ветки в другую. 
+ * В мастере работа не ведётся. Одна задача, одна ветка
+ * 
+ * Рекоммендация по написанию коммитов https://habr.com/ru/post/416887/
+ * 
+ * Можно лучше: Вынесите все названия в отдельный модуль допустим lang в виде объекта. Представьте, что вас попросили добавить второй язык )
+ * 
+ * Рефакторинг(можно лучше): Вынесите все классы по разным файлам. Один класс = один файл.
+ * Так проще разобраться в коде другим разработчикам 
+ * 
  */
+
